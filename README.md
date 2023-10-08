@@ -10,12 +10,46 @@ The basics of the algorithm I wrote are the following:
 
 4. Repeat steps 2 and 3 either until a solution is found or the max number of iterations is reached, in which case we should restart by calling getFirstListOfQueens to start with a good guess again. The reason for having a max amount of iterations is to prevent wasting time on an initial bad guess, cycle, or local optima (see worker_thread in main.py)
 
+
 The program is run by executing the following command:
 ```bash
 python3 main.py <N> <numThreads>
 ```
-This program managed to solve N queens for N=24 in 72.66055011749268 seconds.
 
-The solution is described as an array where the index is the column and the value is the row:
 
-[11, 21, 3, 16, 8, 10, 4, 2, 23, 12, 22, 17, 6, 20, 13, 1, 9, 19, 5, 15, 0, 18, 7, 14]
+
+Here is a 3d graph plotting time in seconds as a function of N and numThreads (see collectData.sh, graphData.py and data.csv)
+
+<img width="649" alt="Screenshot 2023-10-08 at 1 20 41 AM" src="https://github.com/vmic2002/N_Queens_AI/assets/89990471/3a7fb58b-23f7-416e-b48b-91c7c6684144">
+
+The graph can be seen by running the following command:
+
+```bash
+python3 graphData.py
+```
+
+
+This program managed to solve N queens for the following N and numThreads: 
+
+(The solution is described as an array where the index is the column and the value is the row)
+
+N: 35  with 22 threads
+[14, 2, 28, 16, 21, 11, 22, 26, 33, 12, 1, 15, 19, 0, 32, 30, 24, 3, 29, 13, 9, 6, 34, 25, 20, 17, 23, 27, 8, 10, 5, 7, 31, 4, 18]
+367.6123378276825
+
+
+N=45 with 20 threads
+[22, 26, 28, 32, 24, 33, 19, 44, 8, 36, 40, 30, 5, 7, 4, 31, 27, 12, 1, 18, 43, 3, 14, 37, 10, 6, 35, 39, 25, 20, 2, 11, 16, 21, 23, 9, 38, 15, 34, 0, 41, 17, 29, 13, 42]
+1578.4577386379242 seconds
+
+
+N=50 with 24 threads
+[5, 10, 42, 24, 15, 3, 31, 9, 45, 6, 36, 29, 44, 30, 17, 8, 49, 11, 34, 32, 21, 41, 13, 38, 2, 0, 48, 37, 40, 28, 19, 35, 16, 1, 26, 7, 43, 22, 20, 47, 23, 14, 12, 4, 39, 25, 46, 33, 27, 18]
+1688.984313249588 seconds
+
+
+N=60 with 28 threads
+[17, 55, 23, 30, 10, 47, 24, 44, 3, 59, 0, 2, 51, 37, 45, 31, 8, 58, 29, 41, 18, 28, 6, 42, 50, 11, 38, 7, 25, 52, 32, 14, 5, 9, 54, 34, 49, 4, 19, 43, 33, 56, 36, 15, 26, 16, 20, 1, 57, 27, 39, 21, 48, 53, 13, 40, 35, 22, 46, 12]
+126.96703481674194 seconds
+
+
