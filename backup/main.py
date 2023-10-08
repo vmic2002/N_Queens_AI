@@ -130,12 +130,13 @@ def numErrors(queens):
 
 
 def printQueens(queens):
-    for q in queens:
-        print(q)
+    #for q in queens:
+    #    print(q)
     result=[None]*len(queens)
     for q in queens:
         result[q.col]=q.row
-    print(result)
+    #print(result)
+    return result
 
 # Define a function that represents the work each thread is doing
 def worker_thread(thread_id, N):
@@ -152,7 +153,7 @@ def worker_thread(thread_id, N):
         
         if x==None:
             with results_lock:
-                print(f"Thread {thread_id} found the solution!")
+                #print(f"Thread {thread_id} found the solution!")
                 results.append(queens)
             solution_found_event.set()  # Signal that a solution is found
             break
@@ -161,7 +162,7 @@ def worker_thread(thread_id, N):
 
         i+=1
         # Your thread's work here...
-        print(f"Thread {thread_id} is working...")
+        #print(f"Thread {thread_id} is working...")
         q1Index, q2Index, err = x
         #print(str(queens[q1Index]) + ", " + str(queens[q2Index]) + " -> " + str(err))
         fixError(queens, q1Index, q2Index, err, numErrs)
@@ -181,7 +182,7 @@ def worker_thread(thread_id, N):
 
             
 
-print("N Queens Problem!")
+#print("N Queens Problem!")
 if len(sys.argv)!= 3:
     print("Wrong arguments...")
     exit(1)
@@ -204,8 +205,6 @@ if numThreads<1:
     exit(1)
 
 
-print(str(N)+" queens")
-
 start_time = time.time()
 
 # Create and start multiple threads
@@ -220,17 +219,25 @@ for thread in threads:
     thread.join()
 
 total_time = time.time() - start_time
-print("Executed in "+str(total_time)+" seconds")
-i=0
+#print("\tSolution found:")
+sol=printQueens(results[0])
+print(str(N)+" queens "+str(numThreads)+" numThreads Executed in "+str(total_time)+" seconds "+str(sol))
 
-if len(results)==1:
-    print("Solution found:")
-    printQueens(results[0])
-else:
-    print("Num solutions found: "+str(len(results)))
-    for queens in results:
-        i+=1
-        print("Solution "+str(i)+":")
-        printQueens(queens)
+#if len(results)==1:
+#    print("Solution found:")
+#    printQueens(results[0])
+#else:
+#    print("Num solutions found: "+str(len(results)))
+#    for queens in results:
+#        i+=1
+#        print("Solution "+str(i)+":")
+#        printQueens(queens)
+#print()
+data=f"{round(total_time,5)},{N},{numThreads},\"{sol}\"\n"
 
 
+
+# Append-adds at last
+file1 = open("../data.csv", "a")  # append mode
+file1.write(data)
+file1.close()
