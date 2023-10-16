@@ -1,10 +1,12 @@
-from mpl_toolkits.mplot3d import Axes3D
 import matplotlib.pyplot as plt
+import mpl_toolkits
+from mpl_toolkits.mplot3d import Axes3D
 import pandas as pd
 import numpy as np
 
 # Load your data from 'data.csv'
 points = pd.read_csv('data.csv')
+
 
 fig = plt.figure()
 ax = fig.add_subplot(111, projection='3d')
@@ -26,7 +28,7 @@ ax.set_ylabel('numThreads')
 ax.set_zlabel('time (sec)')
 
 # Add a legend to distinguish different numThreads values
-ax.legend()
+#ax.legend()
 
 plt.show()
 

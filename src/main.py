@@ -233,11 +233,9 @@ print(str(N)+" queens "+str(numThreads)+" numThreads Executed in "+str(total_tim
 #        print("Solution "+str(i)+":")
 #        printQueens(queens)
 #print()
-data=f"{round(total_time,5)},{N},{numThreads},\"{sol}\"\n"
 
-
-
+#data=f"{round(total_time,5)},{N},{numThreads},\"{sol}\"\n"
 # Append-adds at last
-file1 = open("../data.csv", "a")  # append mode
-file1.write(data)
-file1.close()
+#file1 = open("../data.csv", "a")  # append mode
+#file1.write(data)
+#file1.close()
