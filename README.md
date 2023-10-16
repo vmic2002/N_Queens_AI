@@ -20,7 +20,9 @@ python3 main.py <N> <numThreads>
 
 Here is a 3d graph plotting time in seconds as a function of N and numThreads (see collectData.sh, graphData.py and data.csv)
 
-<img width="649" alt="Screenshot 2023-10-08 at 1 20 41 AM" src="https://github.com/vmic2002/N_Queens_AI/assets/89990471/3a7fb58b-23f7-416e-b48b-91c7c6684144">
+N is in the range of 4 to 34 and numThreads is in the range of 15 to 50
+
+![Screenshot 2023-10-16 at 3 33 44 PM](https://github.com/vmic2002/N_Queens_AI/assets/89990471/4de824ad-bbac-4305-8a6d-1f75b9ccc495)
 
 The graph can be seen by running the following command:
 
