@@ -30,5 +30,11 @@ ax.set_zlabel('time (sec)')
 # Add a legend to distinguish different numThreads values
 #ax.legend()
 
+
+# Set the "time" axis to use a logarithmic scale
+#ax.set_zscale('log')
+
+
+
 plt.show()
 
